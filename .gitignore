@@ -1,0 +1,14 @@
+/vendor
+/node_modules
+.env
+.swp
+/storage/proxies
+*.iml
+*.ipr
+*.iws
+*.ids
+/bower_components
+.idea
+composer.lock
+/public/vendor
+_ide_helper.php

@@ -1,0 +1,102 @@
+@import "../../../../bower_components/retinajs/src/retina.scss";
+@import "offsets";
+@import "sizes";
+@import "../responsive/contents";
+@import "../responsive/background";
+@import "../responsive/font";
+
+#offerpage {
+    font-family: Dosis, serif;
+
+    .first {
+        //@include responsive-block;
+        background-color: #e0e1e4;
+    }
+	
+    $text-color: #1366ef;
+    .big-text {
+        color: $text-color;
+        //font-size: $big-font-size;
+        font-weight: 500;
+        text-align: center;
+        margin-bottom: 30px;
+        @include responsive-font-size($big-font-size);
+        //font-size: 30px;
+    }
+
+    //.small-text {
+    //    text-align: center;
+    //    color: $text-color;
+    //    font-size: $small-font-size;
+    //    font-weight: 400;
+    //    line-height: 32px;
+    //    margin-bottom: 30px;
+    //}
+
+    .table {
+        width: 70%;
+        margin: auto;
+    }
+
+    .row {
+        .col-sm-6 {
+            padding-bottom: 10px;
+        }
+        .col-sm-6:first-child {
+            padding-right: 50px;
+            float: left;
+        }
+        .col-sm-6:last-child {
+            padding-left: 50px;
+            float: right;
+        }
+    }
+
+    .image {
+        width: 41px + 15px;
+        height: 41px;
+        display: table-cell;
+        background-repeat: no-repeat;
+        background-position: center top 7px;
+        vertical-align: top;
+        margin: auto;
+    }
+
+    .image-offer {
+        @include at2x('/img/offer_img/offer', 'png', 41px, 41px);
+    }
+
+    .btn-red {
+        clear: both;
+        margin-top: 39px !important;
+    }
+
+    .description {
+        text-align: justify;
+        display: table-cell;
+        vertical-align: top;
+        //font-size: 18px;
+        @include responsive-font-size(18px);
+        font-weight: 500;
+        strong {
+            color: #1366ef;
+            //font-size: 23px;
+            @include responsive-font-size(23px);
+            font-weight: 500;
+            display: block;
+        }
+    }
+
+    .download-block {
+        margin-top: 22px;
+        a {
+            @include at2x('/img/download', 'png', 22px, 25px);
+            background-repeat: no-repeat;
+            padding-left: 22px + 4px;
+            color: #1366ef;
+            //font-size: 20px;
+            @include responsive-font-size(20px);
+            font-weight: 500;
+        }
+    }
+}

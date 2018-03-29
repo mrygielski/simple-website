@@ -1,0 +1,89 @@
+@mixin responsive-background (
+    $width, $height
+) {
+  background-repeat: no-repeat;
+  background-size: $width $height;
+  @media all and (max-width: 1500px) {
+    $scale: 0.6;
+    background-size: round($scale*$width) round($scale*$height);
+  }
+}
+
+// Funkcja pomocnicza
+@mixin _responsive-background-with-position-scale(
+    $scale,
+    $width, $height,
+    $vertical, $vertical-offset,
+    $horizontal, $horizontal-offset
+) {
+    background-size: round($width*$scale) round($height*$scale);
+    @if ($horizontal-offset == 0) {
+        background-position:
+        $vertical round($scale*($vertical-offset))
+        $horizontal;
+    }
+    @if ($vertical-offset == 0) {
+      background-position:
+      $vertical
+      $horizontal round($scale*($horizontal-offset));
+    }
+    @if ($horizontal-offset != 0 and $vertical-offset != 0) {
+      background-position:
+        $vertical round($scale*($vertical-offset))
+        $horizontal round($scale*($horizontal-offset));
+    }
+}
+
+@mixin responsive-background-with-position (
+    $width, $height,
+    $vertical, $vertical-offset,
+    $horizontal, $horizontal-offset
+) {
+    background-repeat: no-repeat;
+    @include _responsive-background-with-position-scale
+      (1, $width, $height, $vertical, $vertical-offset, $horizontal, $horizontal-offset);
+
+    @media all and (max-width: 1500px) {
+        $scale: 0.6;
+        @include _responsive-background-with-position-scale
+          ($scale, $width, $height, $vertical, $vertical-offset, $horizontal, $horizontal-offset);}
+
+    @media all and (max-width: 1919px) {
+        $scale: 0.8;
+        @include _responsive-background-with-position-scale
+        ($scale, $width, $height, $vertical, $vertical-offset, $horizontal, $horizontal-offset);  }
+}
+
+//
+// Reguły dla elementów które przechodząc przez stronę
+//
+
+// Funkcja pomocnicza
+@mixin _responsive-background-percentage-offset-calculation (
+  $width, $height, $vertical, $horizontal, $left-offset, $division, $scale
+) {
+  background-size: round($scale*$width) round($scale*$height);
+  background-position:
+    $vertical round($scale*$left-offset)
+    $horizontal round(($scale*$height) * $division)*-1
+  ;
+}
+
+// Opis parametrów
+// Szerokość
+// Wysokość
+// Typ położenia poziomego
+// Położenie pionowe
+// Offset w poziomie
+// Dzielnik wysokości
+@mixin responsive-background-left-offset-percentage-offset (
+    $width, $height, $vertical, $horizontal, $left-offset, $division
+) {
+  background-repeat: no-repeat;
+  @include _responsive-background-percentage-offset-calculation
+    ($width, $height, $vertical, $horizontal, $left-offset, $division, 1.0);
+  @media all and (max-width: 1500px) {
+    @include _responsive-background-percentage-offset-calculation(
+            $width, $height, $vertical, $horizontal, $left-offset, $division, 0.7);
+  }
+}

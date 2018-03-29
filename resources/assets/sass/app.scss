@@ -1,0 +1,81 @@
+// @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+@import "../../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap";
+@import "../../../bower_components/fullpage.js/jquery.fullPage.scss";
+
+@import "responsive/contents";
+@import "responsive/background";
+@import "responsive/font";
+
+@import "pages/offsets";
+@import "pages/indexpage";
+@import "pages/offer";
+@import "pages/contact";
+@import "pages/sizes";
+
+#fullpage_menu {
+    z-index: 9999;
+}
+
+.content {
+    height: 100%;
+    width: 100%;
+}
+
+.table {
+    width: 100%;
+    height: 100%;
+    display: table;
+
+    .row {
+        width: 100%;
+        display: table-row;
+    }
+
+    .cell {
+        display: table-cell;
+        vertical-align: middle;
+        text-align: center;
+    }
+}
+
+.btn-red {
+    background-color: #1366ef;
+    border-radius: 40px;
+    font-family: Dosis, serif;
+    color: #FFFFFF;
+    font-size: 25px;
+    font-weight: 500;
+    outline: none !important;
+    box-shadow: none !important;
+    padding: 8px 76px 8px 76px !important;
+    &:hover, &:active, &:focus {
+        color: #FFFFFF;
+        background-color: #eb0417;
+    }
+}
+
+.nowrap {
+    white-space: nowrap;
+}
+
+.dots {
+    position: absolute;
+    z-index: 999;
+    width: 13px;
+    height: 60px;
+    top: 0;
+    bottom: 0;
+    right: 20px;
+    margin: auto;
+    @include at2x('/img/dots/dots', 'png', 13px, 60px);
+
+    &.page-1 {
+        background-position-x: 0px;
+    }
+    &.page-2 {
+        background-position-x: -13px;
+    }
+    &.page-3 {
+        background-position-x: -26px;
+    }
+}

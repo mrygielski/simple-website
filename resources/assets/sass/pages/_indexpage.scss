@@ -1,0 +1,80 @@
+@import "../../../../bower_components/retinajs/src/retina.scss";
+@import "../responsive/contents";
+@import "../responsive/background";
+@import "../responsive/font";
+@import "offsets";
+@import "sizes";
+
+#indexpage {
+    .first {
+        @include at2x('/img/backgrounds/first_bcg','jpg', cover, cover);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center center;
+    }
+
+    .logo {
+        $width: 308px;
+        $height: 123px;
+        @include at2x('/img/firstpage/logo', 'png', $width, $height);
+        position: absolute;
+        z-index: 3;
+        @include responsive-background-with-position
+            ( $width, $height, left, 200px, top, 0px );
+    }
+	
+    .menu {
+        display: table;
+        position: absolute;
+        right: 100px;
+        height: 123px;
+
+        a {
+            font-family: Dosis, serif;
+            color: #FFFFFF;
+            //font-size: 20px;
+            @include responsive-font-size(20px);
+            font-weight: 500;
+            line-height: 123px;
+            display: table-cell;
+            padding-left: 30px;
+
+            &:hover, &:active {
+                text-decoration: none;
+            }
+
+        }
+    }
+
+    
+
+    .text {
+        z-index: 100;
+    }
+
+    .big-text {
+        font-family: Dosis, serif;
+        color: #FFFFFF;
+        font-size: $big-font-size;
+        font-weight: 500;
+        //line-height: 50px;
+        @include responsive-font-size(50px);
+    }
+
+    .small-text {
+        font-family: Dosis, serif;
+        color: #FFFFFF;
+        font-size: $small-font-size;
+        font-weight: 400;
+        //line-height: 32px;
+        @include responsive-font-size(32px);
+
+        strong {
+            font-weight: 600;
+        }
+    }
+
+    .btn-red {
+        margin-top: 52px;
+    }
+}

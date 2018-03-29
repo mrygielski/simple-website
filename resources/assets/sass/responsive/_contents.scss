@@ -1,0 +1,32 @@
+@mixin responsive-block-scale ($scale) {
+    zoom : $scale * 100%;
+    -moz-transform: scale($scale);
+    transform: scale($scale);
+    transform-origin: 0 0;
+}
+
+@mixin responsive-block {
+    @media all and (max-width: 1500px) {
+        @include responsive-block-scale(0.6);
+    }
+
+    @media all and (max-width: 1919px) {
+        @include responsive-block-scale(0.8);
+    }
+}
+
+@mixin responsive-background-size-scale ($scale, $width, $height) {
+    background-size: ceil($width*$scale) ceil($height*$scale);
+}
+
+@mixin responsive-background ($width, $height) {
+    @media all and (max-width: 1500px) {
+        $scale: 0.6;
+        @include responsive-background-size-scale($scale, $width, $height);
+    }
+
+    @media all and (max-width: 1919px) {
+        $scale: 0.8;
+        @include responsive-background-size-scale($scale, $width, $height)
+    }
+}

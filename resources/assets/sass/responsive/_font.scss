@@ -1,0 +1,11 @@
+@mixin responsive-font-size ($font-size) {
+  font-size: $font-size;
+  @media all and (max-width: 1500px) {
+    $scale: 0.6;
+    font-size: round($scale*$font-size)
+  }
+  @media all and (max-width: 1900px) {
+    $scale: 0.8;
+    font-size: round($scale*$font-size)
+  }
+}

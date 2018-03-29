@@ -1,0 +1,103 @@
+@import "../../../../bower_components/retinajs/src/retina.scss";
+@import "../responsive/contents";
+@import "../responsive/font";
+@import "offsets";
+
+#contactpage {
+    .first {
+        background-color: #c1c3c9;
+    }
+
+    $top-offset : ($book-height + $book-offset) * -1;
+   
+    $contact-color: #383d46;
+    .big-text {
+        color: $contact-color;
+        //font-size: 50px;
+        @include responsive-font-size(50px);
+        font-weight: 500;
+        text-align: center;
+        font-family: Dosis, serif;
+        padding-top: 87px;
+    }
+
+    .small-text {
+        font-family: Dosis, serif;
+        color: #7e8289;
+        //font-size: 26px;
+        @include responsive-font-size(26px);
+        line-height: 32px;
+        text-align: center;
+    }
+
+    $form-background-color: rgba(255, 255, 255, 0.5);
+
+    form {
+        padding-top: 56px;
+        width: 70%;
+        margin: auto;
+    }
+
+    .contact-form-control {
+        @extend .form-control;
+        background-color: $form-background-color;
+        border-radius: 30px !important;
+        margin-bottom: 17px;
+        height: 50px;
+        padding-left: 30px;
+        border: none;
+        //font-size: 20px;
+        @include responsive-font-size(20px);
+        font-family: Dosis, serif;
+        color: #8d9096;
+        &:focus, &:active {
+            border: none;
+            outline: 0 !important;
+            box-shadow: inset 0 0 0 #c21b29;
+        }
+    }
+
+    .btn-red {
+        margin-top: 20px;
+    }
+
+    $textarea-padding: 28px;
+    textarea {
+        font-family: Dosis, serif;
+        //font-size: 20px;
+        @include responsive-font-size(20px);
+        width: 100%;
+        height: 199px;
+        color: #8d9096;
+        background-color: $form-background-color;
+        border-radius: 30px !important;
+        border: none;
+        resize: none;
+        padding: $textarea-padding $textarea-padding $textarea-padding $textarea-padding;
+        &:focus, &:active {
+            border: none;
+            outline: 0 !important;
+            box-shadow: inset 0 0 0 #c21b29;
+        }
+    }
+
+    .footer {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+    }
+
+    .bottom-cell {
+        vertical-align: bottom !important;
+
+        span {
+            font-family: Dosis, serif;
+            color: rgba(56, 61, 70, 0.5);
+            //font-size: 16px;
+            @include responsive-font-size(16px);
+            font-weight: 500;
+            padding-bottom: 37px;
+            display: block;
+        }
+    }
+}
